@@ -100,11 +100,10 @@ def config_loader():
                 f.write("APP_KEY: {} # 将x修改为16位的应用ID \nAPP_SECRET: {} # 将x修改为32位应用密钥".format("".join(["x" for _ in range(16)]),"".join(["x" for _ in range(32)])))
             logger.info("配置文件生成成功！请按规则修改配置文件并保存。\n")
             os.system(r"notepad yd-config.yml")
-            sys.exit()
         except Exception as e:
             logger.error("配置文件生成失败！错误原因:{}\n".format(e))
             os.system("PAUSE")
-            sys.exit()
+        sys.exit()
     try:
         with open("yd-config.yml",'r',encoding='utf8') as f:
             conf = yaml.safe_load(f)
